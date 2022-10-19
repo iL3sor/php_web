@@ -1,0 +1,31 @@
+Ngữ cảnh:
+- Việc phát hiện các lỗ hổng trong phần mềm là nhiệm vụ quan trọng và đầy thử thách
+- Các phương pháp ứng dụng học sâu trong phát hiện lỗ hổng hiện tại chỉ có thể nhận diện được và phân loại được một phần mềm có tồn tại những lổ hổng hay không, chứ chưa thể chỉ rõ ra loại lỗ hổng nào ứng dụng/ hệ thống đang gặp phải.
+=> Tạo ra một nhu cầu về việc phát hiện và phân loại các lỗ hổng ứng dụng.
+*****************************************************
+Ý tưởng:
+In order to detect the specific types of vulnerabilities, we propose using the concept of code attention (những đoạn code mang nhiều thông tin hơn những đoạn khác).
+code attention is composed of multiple program statements
+in a piece of code and would provide more information for
+classifying the type of a vulnerability
+Có thể là API call/Argument definition/control statements....
+
+Nó là khái niệm được phát triển từ khái niệm code gadgets (dùng để chỉ những đoạn code có quan hệ phụ thuộc dữ liệu)
+code gadget captures more “global” semantics information, which is conveyed by the control-dependence and data-dependence relations between the statements in a program, and thus would help achieve
+a higher capability in detecting whether a piece of code is vulnerable or not. The notion of code attention captures more “localized” information within a statement (e.g., arguments in a specific library/API function call) and would help recognize the specific type of a vulnerability. fusing these two kinds of information into a more comprehensive feature representation
+
+*****************************************************
+Mô hình:
+
+*****************************************************
+Cách thực nghiệm
+
+***
+Tìm hiểu Embedding word
+Đọc tiếp paper https://arxiv.org/abs/1807.06756 trong 2 tuần
+Slide: ngữ cảnh , mô hình, các khái niệm 
+***
+"Paper: https://ieeexplore.ieee.org/abstract/document/8846081
+Github NDSS 2018: https://github.com/CGCL-codes/VulDeePecker
+An extension of VulDeePecker: “SySeVR: A Framework for Using Deep Learning to Detect Software Vulnerabilities” (https://arxiv.org/abs/1807.06756)
+"

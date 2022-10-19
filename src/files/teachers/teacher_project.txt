@@ -1,0 +1,42 @@
+SySeVR: dùng để detect vulnerability trong mã nguồn C/C++
+
+Các phương pháp cổ điển: 
+- similarity-based: chỉ áp dụng trong các đoạn mã đi copy
+- pattern-based: cần experts để tìm các pattern có lỗi
+
+Các mô hình học sâu đòi hỏi phải biểu diễn data dưới dạng vector
+
+VulDeepecker có 4 nhược điểm sau:
+- Chỉ detect các lỗ hổng dựa trên API/function call
+- Chỉ sử dụng các thông tin trong mqh data dependency
+- Chỉ sử dụng một nhánh nhỏ của mạng RNN
+- Chưa giải thích được các con số liên quan tới false-positive và false-negative
+
+Contribution
+- Cung cấp 1 framework deep learning để detect vulnerability trong code C/C++
+- Trả lời câu hỏi "làm sao để represent cái chương trình dưới dạng vector
+
+Basic idea:
+- Chia chương trình thành pieces of code <=> region proposal trong xử lí hình  ảnh
+
+Framework overview:
+- vulnerabilities có nhiều điểm chung như cách gọi hàm hoặc sử dụng con trỏ -> áp dụng cho cái SyVCs
+- Code -> SyVCs - > extend cái SyVC output để thành SeVC (thêm các dòng code đồ vào)
+- chuyển thành vector
+
+1. Giai đoạn Extract program to get SyVC
+- Rất tốn thời gian để define và extract các vulnerable piece of code
+- Dùng cái Abstract Syntax Tree để extract 
+có 1 tập vulnerability syntax để so khớp, extract từng phần code coi có match với tập kia hay không, nếu match -> SyVC
+- Xem algorithm 1
+
+
+2. Transforming SyVCs ti SeVCs
+a. Definition
+Dùng cái program slicing để nhận diện các cụm code liên quan ngữ nghĩa với cái SyVCs. Để dùng được kĩ thuật đó thì cần Program Dependency Graph và Control Flow Graph
+
+CFG:
+PDG:
+
+b. Xác định program slices
+Xem algorithm 2
